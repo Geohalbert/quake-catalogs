@@ -3,8 +3,8 @@ export default {
   port: process.env.PORT || 8080,
   app: {
     htmlAttributes: { lang: 'en' },
-    title: 'React Cool Starter',
-    titleTemplate: 'React Cool Starter - %s',
+    title: 'Quake Catalogs',
+    titleTemplate: 'Quake Catalogs - %s',
     meta: [
       {
         name: 'description',
