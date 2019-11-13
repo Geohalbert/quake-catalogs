@@ -46,10 +46,8 @@ export const QuakeInfo = ({ match, quakeInfo, fetchQuakeIfNeeded }: Props) => {
 const mapStateToProps = ({ quakeInfo }: AppState) => ({ quakeInfo });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
-  fetchQuakeIfNeeded: (id: string) => dispatch(quakeAction.fetchQuakeIfNeeded(id))
+  fetchQuakeIfNeeded: (id: string) =>
+    dispatch(quakeAction.fetchQuakeIfNeeded(id))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(memo(QuakeInfo));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(QuakeInfo));

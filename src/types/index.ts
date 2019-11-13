@@ -40,7 +40,10 @@ export const QUAKE_SUCCESS = 'QUAKE_SUCCESS';
 export const QUAKE_FAILURE = 'QUAKE_FAILURE';
 
 export interface QuakesAction {
-  type: typeof QUAKES_REQUESTING | typeof QUAKES_SUCCESS | typeof QUAKES_FAILURE;
+  type:
+    | typeof QUAKES_REQUESTING
+    | typeof QUAKES_SUCCESS
+    | typeof QUAKES_FAILURE;
   data?: Array<object>;
   err?: any;
 }

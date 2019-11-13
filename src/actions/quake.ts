@@ -46,7 +46,8 @@ export const fetchQuakeIfNeeded = (quakeId: string): ThunkAction => (
   getState: ThunkState
 ) => {
   /* istanbul ignore next */
-  if (shouldFetchQuake(getState(), quakeId)) return dispatch(fetchQuake(quakeId));
+  if (shouldFetchQuake(getState(), quakeId))
+    return dispatch(fetchQuake(quakeId));
 
   /* istanbul ignore next */
   return null;
