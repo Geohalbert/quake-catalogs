@@ -10,10 +10,10 @@ describe('quakes data home', () => {
     });
   });
 
-  it('should handle USERS_REQUESTING', () => {
+  it('should handle QUAKES_REQUESTING', () => {
     expect(
       home(undefined, {
-        type: 'USERS_REQUESTING',
+        type: 'QUAKES_REQUESTING',
         err: null,
         data: []
       })
@@ -24,10 +24,10 @@ describe('quakes data home', () => {
     });
   });
 
-  it('should handle USERS_FAILURE', () => {
+  it('should handle QUAKES_FAILURE', () => {
     expect(
       home(undefined, {
-        type: 'USERS_FAILURE',
+        type: 'QUAKES_FAILURE',
         err: 'Oops! Something went wrong.',
         data: []
       })
@@ -38,10 +38,10 @@ describe('quakes data home', () => {
     });
   });
 
-  it('should handle USERS_SUCCESS', () => {
+  it('should handle QUAKES_SUCCESS', () => {
     expect(
       home(undefined, {
-        type: 'USERS_SUCCESS',
+        type: 'QUAKES_SUCCESS',
         err: null,
         data: [{ id: '1', name: 'Welly' }]
       })

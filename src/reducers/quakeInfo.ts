@@ -1,21 +1,21 @@
 import {
   QuakeInfoState,
   QuakeAction,
-  USER_REQUESTING,
-  USER_SUCCESS,
-  USER_FAILURE
+  QUAKE_REQUESTING,
+  QUAKE_SUCCESS,
+  QUAKE_FAILURE
 } from '../types';
 
 export default (state: QuakeInfoState = {}, action: QuakeAction) => {
   switch (action.type) {
-    case USER_REQUESTING:
+    case QUAKE_REQUESTING:
       return {
         ...state,
         [action.quakeId]: {
           readyStatus: 'request'
         }
       };
-    case USER_SUCCESS:
+    case QUAKE_SUCCESS:
       return {
         ...state,
         [action.quakeId]: {
@@ -23,7 +23,7 @@ export default (state: QuakeInfoState = {}, action: QuakeAction) => {
           info: action.data
         }
       };
-    case USER_FAILURE:
+    case QUAKE_FAILURE:
       return {
         ...state,
         [action.quakeId]: {

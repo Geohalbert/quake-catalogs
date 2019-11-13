@@ -5,9 +5,9 @@ import {
   ThunkState,
   ThunkAction,
   AppState,
-  USER_REQUESTING,
-  USER_SUCCESS,
-  USER_FAILURE
+  QUAKE_REQUESTING,
+  QUAKE_SUCCESS,
+  QUAKE_FAILURE
 } from '../types';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/quakes';
@@ -18,16 +18,16 @@ export const fetchQuake = (
   quakeId: string,
   URL: string = API_URL
 ): ThunkAction => async (dispatch: ThunkDispatch) => {
-  dispatch({ type: USER_REQUESTING, quakeId });
+  dispatch({ type: QUAKE_REQUESTING, quakeId });
 
   try {
     const { data } = await axios.get(`${URL}/${quakeId}`);
 
     /* istanbul ignore next */
-    dispatch({ type: USER_SUCCESS, quakeId, data });
+    dispatch({ type: QUAKE_SUCCESS, quakeId, data });
   } catch (err) {
     /* istanbul ignore next */
-    dispatch({ type: USER_FAILURE, quakeId, err: err.message });
+    dispatch({ type: QUAKE_FAILURE, quakeId, err: err.message });
   }
 };
 

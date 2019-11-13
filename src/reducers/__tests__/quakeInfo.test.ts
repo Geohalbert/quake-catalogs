@@ -6,19 +6,19 @@ describe('quake data quakeInfo', () => {
     expect(quakeInfo(undefined, {})).toEqual({});
   });
 
-  it('should handle USER_REQUESTING', () => {
+  it('should handle QUAKE_REQUESTING', () => {
     expect(
       quakeInfo(undefined, {
-        type: 'USER_REQUESTING',
+        type: 'QUAKE_REQUESTING',
         quakeId: '1'
       })
     ).toEqual({ 1: { readyStatus: 'request' } });
   });
 
-  it('should handle USER_FAILURE', () => {
+  it('should handle QUAKE_FAILURE', () => {
     expect(
       quakeInfo(undefined, {
-        type: 'USER_FAILURE',
+        type: 'QUAKE_FAILURE',
         quakeId: '1',
         err: 'Oops! Something went wrong.'
       })
@@ -30,10 +30,10 @@ describe('quake data quakeInfo', () => {
     });
   });
 
-  it('should handle USER_SUCCESS', () => {
+  it('should handle QUAKE_SUCCESS', () => {
     expect(
       quakeInfo(undefined, {
-        type: 'USER_SUCCESS',
+        type: 'QUAKE_SUCCESS',
         quakeId: '1',
         data: {
           name: 'Welly',

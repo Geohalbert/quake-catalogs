@@ -5,9 +5,9 @@ import {
   ThunkState,
   ThunkAction,
   AppState,
-  USERS_REQUESTING,
-  USERS_SUCCESS,
-  USERS_FAILURE
+  QUAKES_REQUESTING,
+  QUAKES_SUCCESS,
+  QUAKES_FAILURE
 } from '../types';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/quakes';
@@ -17,16 +17,16 @@ const API_URL = 'https://jsonplaceholder.typicode.com/quakes';
 export const fetchQuakes = (URL: string = API_URL): ThunkAction => async (
   dispatch: ThunkDispatch
 ) => {
-  dispatch({ type: USERS_REQUESTING });
+  dispatch({ type: QUAKES_REQUESTING });
 
   try {
     const { data } = await axios.get(URL);
 
     /* istanbul ignore next */
-    dispatch({ type: USERS_SUCCESS, data });
+    dispatch({ type: QUAKES_SUCCESS, data });
   } catch (err) {
     /* istanbul ignore next */
-    dispatch({ type: USERS_FAILURE, err: err.message });
+    dispatch({ type: QUAKES_FAILURE, err: err.message });
   }
 };
 

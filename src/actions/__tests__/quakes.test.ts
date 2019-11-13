@@ -22,14 +22,14 @@ describe('fetch quakes data', () => {
     nock.disableNetConnect();
   });
 
-  it('creates USERS_SUCCESS when fetching quakes has been done', () => {
+  it('creates QUAKES_SUCCESS when fetching quakes has been done', () => {
     nock(host)
       .get('/test')
       .reply(200, response);
 
     const expectedActions = [
-      { type: 'USERS_REQUESTING' },
-      { type: 'USERS_SUCCESS', data: response }
+      { type: 'QUAKES_REQUESTING' },
+      { type: 'QUAKES_SUCCESS', data: response }
     ];
     const store = mockStore({ list: null });
 
@@ -39,14 +39,14 @@ describe('fetch quakes data', () => {
     });
   });
 
-  it('creates USERS_FAILURE when fail to fetch quakes', () => {
+  it('creates QUAKES_FAILURE when fail to fetch quakes', () => {
     nock(host)
       .get('/test')
       .replyWithError(errorMessage);
 
     const expectedActions = [
-      { type: 'USERS_REQUESTING' },
-      { type: 'USERS_FAILURE', err: errorMessage }
+      { type: 'QUAKES_REQUESTING' },
+      { type: 'QUAKES_FAILURE', err: errorMessage }
     ];
     const store = mockStore({ err: null });
 

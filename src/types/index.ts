@@ -31,22 +31,22 @@ export interface AppState {
 export type ThunkState = () => AppState;
 
 // Actions
-export const USERS_REQUESTING = 'USERS_REQUESTING';
-export const USERS_SUCCESS = 'USERS_SUCCESS';
-export const USERS_FAILURE = 'USERS_FAILURE';
+export const QUAKES_REQUESTING = 'QUAKES_REQUESTING';
+export const QUAKES_SUCCESS = 'QUAKES_SUCCESS';
+export const QUAKES_FAILURE = 'QUAKES_FAILURE';
 
-export const USER_REQUESTING = 'USER_REQUESTING';
-export const USER_SUCCESS = 'USER_SUCCESS';
-export const USER_FAILURE = 'USER_FAILURE';
+export const QUAKE_REQUESTING = 'QUAKE_REQUESTING';
+export const QUAKE_SUCCESS = 'QUAKE_SUCCESS';
+export const QUAKE_FAILURE = 'QUAKE_FAILURE';
 
 export interface QuakesAction {
-  type: typeof USERS_REQUESTING | typeof USERS_SUCCESS | typeof USERS_FAILURE;
+  type: typeof QUAKES_REQUESTING | typeof QUAKES_SUCCESS | typeof QUAKES_FAILURE;
   data?: Array<object>;
   err?: any;
 }
 
 export interface QuakeAction {
-  type: typeof USER_REQUESTING | typeof USER_SUCCESS | typeof USER_FAILURE;
+  type: typeof QUAKE_REQUESTING | typeof QUAKE_SUCCESS | typeof QUAKE_FAILURE;
   quakeId: string;
   data?: object;
   err?: any;
