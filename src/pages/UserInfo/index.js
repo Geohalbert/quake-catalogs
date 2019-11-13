@@ -8,12 +8,12 @@ import loadable from '@loadable/component';
 
 import { Loading, ErrorBoundary } from '../../components';
 
-const UserInfo = loadable(() => import('./UserInfo'), {
+const QuakeInfo = loadable(() => import('./QuakeInfo'), {
   fallback: <Loading />
 });
 
 export default props => (
   <ErrorBoundary>
-    <UserInfo {...props} />
+    <QuakeInfo {...props} />
   </ErrorBoundary>
 );

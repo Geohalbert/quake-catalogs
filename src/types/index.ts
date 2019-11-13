@@ -9,8 +9,8 @@ export interface HomeState {
   list: Array<{ id: string; name: string }>;
 }
 
-export interface UserInfoState {
-  [userId: string]: {
+export interface QuakeInfoState {
+  [quakeId: string]: {
     readyStatus: string;
     err: any;
     info: {
@@ -24,7 +24,7 @@ export interface UserInfoState {
 
 export interface AppState {
   home: HomeState;
-  userInfo: UserInfoState;
+  quakeInfo: QuakeInfoState;
   router: RouterState;
 }
 
@@ -39,20 +39,20 @@ export const USER_REQUESTING = 'USER_REQUESTING';
 export const USER_SUCCESS = 'USER_SUCCESS';
 export const USER_FAILURE = 'USER_FAILURE';
 
-export interface UsersAction {
+export interface QuakesAction {
   type: typeof USERS_REQUESTING | typeof USERS_SUCCESS | typeof USERS_FAILURE;
   data?: Array<object>;
   err?: any;
 }
 
-export interface UserAction {
+export interface QuakeAction {
   type: typeof USER_REQUESTING | typeof USER_SUCCESS | typeof USER_FAILURE;
-  userId: string;
+  quakeId: string;
   data?: object;
   err?: any;
 }
 
-export type MyAction = UsersAction | UserAction;
+export type MyAction = QuakesAction | QuakeAction;
 
 export type ThunkAction = Act<void, AppState, null, Action<string>>;
 

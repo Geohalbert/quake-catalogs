@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserInfo /> renders an error if loading failed 1`] = `
+exports[`<QuakeInfo /> renders an error if loading failed 1`] = `
 <div
-  className="UserInfo"
+  className="QuakeInfo"
 >
   <p>
     Oops, Failed to load info!
@@ -10,15 +10,15 @@ exports[`<UserInfo /> renders an error if loading failed 1`] = `
 </div>
 `;
 
-exports[`<UserInfo /> renders the <UserCard /> if loading was successful 1`] = `
+exports[`<QuakeInfo /> renders the <QuakeCard /> if loading was successful 1`] = `
 <div
-  className="UserInfo"
+  className="QuakeInfo"
 >
   <div
-    className="UserCard"
+    className="QuakeCard"
   >
     <h4>
-      User Card
+      Quake Card
     </h4>
     <ul>
       <li>
@@ -42,9 +42,9 @@ exports[`<UserInfo /> renders the <UserCard /> if loading was successful 1`] = `
 </div>
 `;
 
-exports[`<UserInfo /> renders the loading status if data invalid 1`] = `
+exports[`<QuakeInfo /> renders the loading status if data invalid 1`] = `
 <div
-  className="UserInfo"
+  className="QuakeInfo"
 >
   <p>
     Loading...
@@ -52,9 +52,9 @@ exports[`<UserInfo /> renders the loading status if data invalid 1`] = `
 </div>
 `;
 
-exports[`<UserInfo /> renders the loading status if requesting data 1`] = `
+exports[`<QuakeInfo /> renders the loading status if requesting data 1`] = `
 <div
-  className="UserInfo"
+  className="QuakeInfo"
 >
   <p>
     Loading...

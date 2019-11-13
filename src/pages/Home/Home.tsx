@@ -2,8 +2,8 @@ import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-import { usersAction } from '../../actions';
-import { UserList } from '../../components';
+import { quakesAction } from '../../actions';
+import { QuakeList } from '../../components';
 import { AppState, ThunkDispatch } from '../../types';
 import styles from './styles.scss';
 
@@ -11,24 +11,24 @@ type Props = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;
 
 // Export for unit testing
-export const Home = ({ readyStatus, list, fetchUsersIfNeeded }: Props) => {
+export const Home = ({ readyStatus, list, fetchQuakesIfNeeded }: Props) => {
   useEffect(() => {
-    fetchUsersIfNeeded();
+    fetchQuakesIfNeeded();
   }, []);
 
-  const renderUserList = () => {
+  const renderQuakeList = () => {
     if (!readyStatus || readyStatus === 'invalid' || readyStatus === 'request')
       return <p>Loading...</p>;
 
     if (readyStatus === 'failure') return <p>Oops, Failed to load list!</p>;
 
-    return <UserList list={list} />;
+    return <QuakeList list={list} />;
   };
 
   return (
     <div className={styles.Home}>
       <Helmet title="Home" />
-      {renderUserList()}
+      {renderQuakeList()}
     </div>
   );
 };
@@ -39,7 +39,7 @@ const mapStateToProps = ({ home: { readyStatus, list } }: AppState) => ({
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
-  fetchUsersIfNeeded: () => dispatch(usersAction.fetchUsersIfNeeded())
+  fetchQuakesIfNeeded: () => dispatch(quakesAction.fetchQuakesIfNeeded())
 });
 
 export default connect(

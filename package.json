@@ -273,7 +273,7 @@
       "!src/components/index.ts",
       "!src/pages/index.ts",
       "!src/pages/Home/index.js",
-      "!src/pages/UserInfo/index.js"
+      "!src/pages/QuakeInfo/index.js"
     ],
     "moduleNameMapper": {
       ".*\\.(css|scss|sass)$": "<rootDir>/tools/jest/styleMock.ts",

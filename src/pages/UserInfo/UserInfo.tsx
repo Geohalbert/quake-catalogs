@@ -2,8 +2,8 @@ import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-import { userAction } from '../../actions';
-import { UserCard } from '../../components';
+import { quakeAction } from '../../actions';
+import { QuakeCard } from '../../components';
 import { AppState, ThunkDispatch } from '../../types';
 import styles from './styles.scss';
 
@@ -16,40 +16,40 @@ type Props = ReturnType<typeof mapStateToProps> &
   ownProps;
 
 // Export for unit testing
-export const UserInfo = ({ match, userInfo, fetchUserIfNeeded }: Props) => {
+export const QuakeInfo = ({ match, quakeInfo, fetchQuakeIfNeeded }: Props) => {
   const { id } = match.params;
 
   useEffect(() => {
-    fetchUserIfNeeded(id);
+    fetchQuakeIfNeeded(id);
   }, [id]);
 
-  const renderUserCard = () => {
-    const userInfoById = userInfo[id];
+  const renderQuakeCard = () => {
+    const quakeInfoById = quakeInfo[id];
 
-    if (!userInfoById || userInfoById.readyStatus === 'request')
+    if (!quakeInfoById || quakeInfoById.readyStatus === 'request')
       return <p>Loading...</p>;
 
-    if (userInfoById.readyStatus === 'failure')
+    if (quakeInfoById.readyStatus === 'failure')
       return <p>Oops, Failed to load info!</p>;
 
-    return <UserCard info={userInfoById.info} />;
+    return <QuakeCard info={quakeInfoById.info} />;
   };
 
   return (
-    <div className={styles.UserInfo}>
-      <Helmet title="User Info" />
-      {renderUserCard()}
+    <div className={styles.QuakeInfo}>
+      <Helmet title="Quake Info" />
+      {renderQuakeCard()}
     </div>
   );
 };
 
-const mapStateToProps = ({ userInfo }: AppState) => ({ userInfo });
+const mapStateToProps = ({ quakeInfo }: AppState) => ({ quakeInfo });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch) => ({
-  fetchUserIfNeeded: (id: string) => dispatch(userAction.fetchUserIfNeeded(id))
+  fetchQuakeIfNeeded: (id: string) => dispatch(quakeAction.fetchQuakeIfNeeded(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(memo(UserInfo));
+)(memo(QuakeInfo));

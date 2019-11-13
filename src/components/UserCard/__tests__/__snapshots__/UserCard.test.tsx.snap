@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserCard /> renders 1`] = `
+exports[`<QuakeCard /> renders 1`] = `
 <div
-  className="UserCard"
+  className="QuakeCard"
 >
   <h4>
-    User Card
+    Quake Card
   </h4>
   <ul>
     <li>

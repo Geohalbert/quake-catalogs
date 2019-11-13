@@ -3,12 +3,12 @@ import { History } from 'history';
 import { connectRouter } from 'connected-react-router';
 
 import home from './home';
-import userInfo from './userInfo';
+import quakeInfo from './quakeInfo';
 
 export default (history: History) =>
   combineReducers({
     // Register reducers here
     home,
-    userInfo,
+    quakeInfo,
     router: connectRouter(history)
   });

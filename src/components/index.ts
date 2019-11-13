@@ -1,6 +1,6 @@
-import UserList from './UserList';
-import UserCard from './UserCard';
+import QuakeList from './QuakeList';
+import QuakeCard from './QuakeCard';
 import ErrorBoundary from './ErrorBoundary';
 import Loading from './Loading';
 
-export { UserList, UserCard, ErrorBoundary, Loading };
+export { QuakeList, QuakeCard, ErrorBoundary, Loading };

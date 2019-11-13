@@ -10,11 +10,11 @@ import {
   USERS_FAILURE
 } from '../types';
 
-const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const API_URL = 'https://jsonplaceholder.typicode.com/quakes';
 
 // Export this for unit testing
 /* istanbul ignore next */
-export const fetchUsers = (URL: string = API_URL): ThunkAction => async (
+export const fetchQuakes = (URL: string = API_URL): ThunkAction => async (
   dispatch: ThunkDispatch
 ) => {
   dispatch({ type: USERS_REQUESTING });
@@ -31,19 +31,19 @@ export const fetchUsers = (URL: string = API_URL): ThunkAction => async (
 };
 
 /* istanbul ignore next */
-const shouldFetchUsers = (state: AppState): boolean => {
+const shouldFetchQuakes = (state: AppState): boolean => {
   if (state.home.readyStatus === 'success') return false;
 
   return true;
 };
 
 /* istanbul ignore next */
-export const fetchUsersIfNeeded = (): ThunkAction => (
+export const fetchQuakesIfNeeded = (): ThunkAction => (
   dispatch: ThunkDispatch,
   getState: ThunkState
 ) => {
   /* istanbul ignore next */
-  if (shouldFetchUsers(getState())) return dispatch(fetchUsers());
+  if (shouldFetchQuakes(getState())) return dispatch(fetchQuakes());
 
   /* istanbul ignore next */
   return null;

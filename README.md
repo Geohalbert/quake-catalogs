@@ -5,7 +5,7 @@
 [![devDependencies Status](https://david-dm.org/wellyshen/react-cool-starter/dev-status.svg)](https://david-dm.org/wellyshen/react-cool-starter?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/wellyshen/react-cool-starter/badge.svg?branch=master)](https://coveralls.io/github/wellyshen/react-cool-starter?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/wellyshen/react-cool-starter/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubquakecontent.com/wellyshen/react-cool-starter/master/LICENSE)
 [![Twitter URL](https://img.shields.io/twitter/url/https/github.com/erikras/redux-form.svg?style=social)](https://twitter.com/intent/tweet?text=With%20@React-Cool-Starter,%20I%20can%20build%20my%20universal%20web%20app%20easily.%20Thanks,%20@Welly%20Shen!)
 
 > 🎉 My react-native app [LeadFit](https://itunes.apple.com/app/id1321807247) now available on App Store, which is a workout app. Welcome to try, it's free!
@@ -302,7 +302,7 @@ useEffect(() => {
 
 ### Code Splitting
 
-One great feature of the web is that you don’t have to make your visitors download the entire app before they can use it. You can think of code splitting as incrementally downloading the app. It divides your code into small pieces called “chunks” to reduce the size of bundle loaded by user. Reducing the size of a chunk makes it load and run faster.
+One great feature of the web is that you don’t have to make your visitors download the entire app before they can use it. You can think of code splitting as incrementally downloading the app. It divides your code into small pieces called “chunks” to reduce the size of bundle loaded by quake. Reducing the size of a chunk makes it load and run faster.
 
 To accomplish this, I integrate [loadable-components](https://github.com/smooth-code/loadable-components) into this starter. The reason I choose the library is because of its design philosophy of SSR. It works seamless with the starter rather than others. Let’s see how we split our app by route:
 
@@ -425,7 +425,7 @@ import styles from "./styles.scss";
 return (
   <div>
     <div>
-      <i className={styles.iconUser} /> Welly
+      <i className={styles.iconQuake} /> Welly
     </div>
   </div>
 );
@@ -450,9 +450,9 @@ For using CSS modules, you have to set the proper font path in your scss/sass fi
 $fa-font-path:"../node_modules/font-awesome/fonts";
 @import "../node_modules/font-awesome/scss/font-awesome";
 
-.icon-user {
+.icon-quake {
   @extend .fa;
-  @extend .fa-user;
+  @extend .fa-quake;
 }
 ```
 

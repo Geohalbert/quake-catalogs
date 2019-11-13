@@ -5,7 +5,7 @@ import axios from 'axios';
 import httpAdapter from 'axios/lib/adapters/http';
 import nock from 'nock';
 
-import { fetchUsers } from '../users';
+import { fetchQuakes } from '../quakes';
 
 const host = 'http://localhost';
 
@@ -14,7 +14,7 @@ axios.defaults.adapter = httpAdapter;
 
 const mockStore = configureMockStore([thunk]);
 
-describe('fetch users data', () => {
+describe('fetch quakes data', () => {
   const response = [{ id: 'test', name: 'Welly' }];
   const errorMessage = 'Request failed with status code 404';
 
@@ -22,7 +22,7 @@ describe('fetch users data', () => {
     nock.disableNetConnect();
   });
 
-  it('creates USERS_SUCCESS when fetching users has been done', () => {
+  it('creates USERS_SUCCESS when fetching quakes has been done', () => {
     nock(host)
       .get('/test')
       .reply(200, response);
@@ -34,12 +34,12 @@ describe('fetch users data', () => {
     const store = mockStore({ list: null });
 
     // @ts-ignore
-    store.dispatch(fetchUsers(`${host}/test`)).then(() => {
+    store.dispatch(fetchQuakes(`${host}/test`)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
-  it('creates USERS_FAILURE when fail to fetch users', () => {
+  it('creates USERS_FAILURE when fail to fetch quakes', () => {
     nock(host)
       .get('/test')
       .replyWithError(errorMessage);
@@ -51,7 +51,7 @@ describe('fetch users data', () => {
     const store = mockStore({ err: null });
 
     // @ts-ignore
-    store.dispatch(fetchUsers(`${host}/test`)).then(() => {
+    store.dispatch(fetchQuakes(`${host}/test`)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

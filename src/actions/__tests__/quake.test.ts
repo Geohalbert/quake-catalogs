@@ -5,7 +5,7 @@ import axios from 'axios';
 import httpAdapter from 'axios/lib/adapters/http';
 import nock from 'nock';
 
-import { fetchUser } from '../user';
+import { fetchQuake } from '../quake';
 
 const host = 'http://localhost';
 
@@ -14,8 +14,8 @@ axios.defaults.adapter = httpAdapter;
 
 const mockStore = configureMockStore([thunk]);
 
-describe('fetch user data', () => {
-  const userId = 'test';
+describe('fetch quake data', () => {
+  const quakeId = 'test';
   const response = {
     name: 'Welly',
     phone: '007',
@@ -28,36 +28,36 @@ describe('fetch user data', () => {
     nock.disableNetConnect();
   });
 
-  it('creates USER_SUCCESS when fetching user has been done', () => {
+  it('creates USER_SUCCESS when fetching quake has been done', () => {
     nock(host)
       .get('/test')
       .reply(200, response);
 
     const expectedActions = [
-      { type: 'USER_REQUESTING', userId },
-      { type: 'USER_SUCCESS', userId, data: response }
+      { type: 'USER_REQUESTING', quakeId },
+      { type: 'USER_SUCCESS', quakeId, data: response }
     ];
     const store = mockStore({ info: null });
 
     // @ts-ignore
-    store.dispatch(fetchUser('test', host)).then(() => {
+    store.dispatch(fetchQuake('test', host)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
-  it('creates USER_FAILURE when fail to fetch user', () => {
+  it('creates USER_FAILURE when fail to fetch quake', () => {
     nock(host)
       .get('/test')
       .replyWithError(errorMessage);
 
     const expectedActions = [
-      { type: 'USER_REQUESTING', userId },
-      { type: 'USER_FAILURE', userId, err: errorMessage }
+      { type: 'USER_REQUESTING', quakeId },
+      { type: 'USER_FAILURE', quakeId, err: errorMessage }
     ];
     const store = mockStore({ err: null });
 
     // @ts-ignore
-    store.dispatch(fetchUser('test', host)).then(() => {
+    store.dispatch(fetchQuake('test', host)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

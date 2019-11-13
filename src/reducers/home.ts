@@ -1,6 +1,6 @@
 import {
   HomeState,
-  UsersAction,
+  QuakesAction,
   USERS_REQUESTING,
   USERS_SUCCESS,
   USERS_FAILURE
@@ -12,7 +12,7 @@ const initialState: HomeState = {
   list: []
 };
 
-export default (state = initialState, action: UsersAction) => {
+export default (state = initialState, action: QuakesAction) => {
   switch (action.type) {
     case USERS_REQUESTING:
       return {

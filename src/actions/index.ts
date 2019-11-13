@@ -1,4 +1,4 @@
-import * as usersAction from './users';
-import * as userAction from './user';
+import * as quakesAction from './quakes';
+import * as quakeAction from './quake';
 
-export { usersAction, userAction };
+export { quakesAction, quakeAction };

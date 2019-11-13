@@ -10,20 +10,20 @@ exports[`<Home /> renders an error if loading failed 1`] = `
 </div>
 `;
 
-exports[`<Home /> renders the <UserList /> if loading was successful 1`] = `
+exports[`<Home /> renders the <QuakeList /> if loading was successful 1`] = `
 <div
   className="Home"
 >
   <div
-    className="UserList"
+    className="QuakeList"
   >
     <h4>
-      User List
+      Quake List
     </h4>
     <ul>
       <li>
         <a
-          href="/UserInfo/1"
+          href="/QuakeInfo/1"
           onClick={[Function]}
         >
           Welly

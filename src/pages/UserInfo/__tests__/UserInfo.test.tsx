@@ -3,31 +3,31 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 
-import { UserInfo } from '../UserInfo';
+import { QuakeInfo } from '../QuakeInfo';
 
-describe('<UserInfo />', () => {
+describe('<QuakeInfo />', () => {
   const tree = (props: object, actions: object) =>
     renderer
       .create(
         <MemoryRouter>
           {/*
             // @ts-ignore */}
-          <UserInfo {...props} {...actions} />
+          <QuakeInfo {...props} {...actions} />
         </MemoryRouter>
       )
       .toJSON();
 
-  it('should call fetchUserIfNeeded when componentDidMount', () => {
+  it('should call fetchQuakeIfNeeded when componentDidMount', () => {
     const mockAction = jest.fn();
     const props = {
-      userInfo: {},
+      quakeInfo: {},
       match: { params: { id: 1 } }
     };
-    const actions = { fetchUserIfNeeded: mockAction };
+    const actions = { fetchQuakeIfNeeded: mockAction };
 
     mount(
       <MemoryRouter>
-        <UserInfo {...props} {...actions} />
+        <QuakeInfo {...props} {...actions} />
       </MemoryRouter>
     );
 
@@ -36,37 +36,37 @@ describe('<UserInfo />', () => {
 
   it('renders the loading status if data invalid', () => {
     const props = {
-      userInfo: {},
+      quakeInfo: {},
       match: { params: { id: 1 } }
     };
-    const actions = { fetchUserIfNeeded: () => {} };
+    const actions = { fetchQuakeIfNeeded: () => {} };
 
     expect(tree(props, actions)).toMatchSnapshot();
   });
 
   it('renders the loading status if requesting data', () => {
     const props = {
-      userInfo: { 1: { readyStatus: 'request' } },
+      quakeInfo: { 1: { readyStatus: 'request' } },
       match: { params: { id: 1 } }
     };
-    const actions = { fetchUserIfNeeded: () => {} };
+    const actions = { fetchQuakeIfNeeded: () => {} };
 
     expect(tree(props, actions)).toMatchSnapshot();
   });
 
   it('renders an error if loading failed', () => {
     const props = {
-      userInfo: { 1: { readyStatus: 'failure' } },
+      quakeInfo: { 1: { readyStatus: 'failure' } },
       match: { params: { id: 1 } }
     };
-    const actions = { fetchUserIfNeeded: () => {} };
+    const actions = { fetchQuakeIfNeeded: () => {} };
 
     expect(tree(props, actions)).toMatchSnapshot();
   });
 
-  it('renders the <UserCard /> if loading was successful', () => {
+  it('renders the <QuakeCard /> if loading was successful', () => {
     const props = {
-      userInfo: {
+      quakeInfo: {
         1: {
           readyStatus: 'success',
           info: {
@@ -79,7 +79,7 @@ describe('<UserInfo />', () => {
       },
       match: { params: { id: 1 } }
     };
-    const actions = { fetchUserIfNeeded: () => {} };
+    const actions = { fetchQuakeIfNeeded: () => {} };
 
     expect(tree(props, actions)).toMatchSnapshot();
   });

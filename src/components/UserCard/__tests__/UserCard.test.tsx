@@ -2,9 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 
-import UserCard from '../index';
+import QuakeCard from '../index';
 
-describe('<UserCard />', () => {
+describe('<QuakeCard />', () => {
   it('renders', () => {
     const mockData = {
       name: 'Welly',
@@ -15,7 +15,7 @@ describe('<UserCard />', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <UserCard info={mockData} />
+          <QuakeCard info={mockData} />
         </MemoryRouter>
       )
       .toJSON();

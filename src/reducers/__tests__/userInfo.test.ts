@@ -1,25 +1,25 @@
-import userInfo from '../userInfo';
+import quakeInfo from '../quakeInfo';
 
-describe('user data userInfo', () => {
+describe('quake data quakeInfo', () => {
   it('should handle the initial state', () => {
     // @ts-ignore
-    expect(userInfo(undefined, {})).toEqual({});
+    expect(quakeInfo(undefined, {})).toEqual({});
   });
 
   it('should handle USER_REQUESTING', () => {
     expect(
-      userInfo(undefined, {
+      quakeInfo(undefined, {
         type: 'USER_REQUESTING',
-        userId: '1'
+        quakeId: '1'
       })
     ).toEqual({ 1: { readyStatus: 'request' } });
   });
 
   it('should handle USER_FAILURE', () => {
     expect(
-      userInfo(undefined, {
+      quakeInfo(undefined, {
         type: 'USER_FAILURE',
-        userId: '1',
+        quakeId: '1',
         err: 'Oops! Something went wrong.'
       })
     ).toEqual({
@@ -32,9 +32,9 @@ describe('user data userInfo', () => {
 
   it('should handle USER_SUCCESS', () => {
     expect(
-      userInfo(undefined, {
+      quakeInfo(undefined, {
         type: 'USER_SUCCESS',
-        userId: '1',
+        quakeId: '1',
         data: {
           name: 'Welly',
           phone: '007',

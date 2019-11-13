@@ -1,6 +1,6 @@
-import { usersAction, userAction } from './actions';
+import { quakesAction, quakeAction } from './actions';
 import App from './app';
-import { asyncHome, asyncUserInfo, NotFound } from './pages';
+import { asyncHome, asyncQuakeInfo, NotFound } from './pages';
 
 export default [
   {
@@ -11,15 +11,15 @@ export default [
         exact: true,
         component: asyncHome, // Add your route here
         loadData: () => [
-          usersAction.fetchUsersIfNeeded()
+          quakesAction.fetchQuakesIfNeeded()
           // Add other pre-fetched actions here
         ]
       },
       {
-        path: '/UserInfo/:id',
-        component: asyncUserInfo,
+        path: '/QuakeInfo/:id',
+        component: asyncQuakeInfo,
         loadData: ({ params }: { params: { id: string } }) => [
-          userAction.fetchUserIfNeeded(params.id)
+          quakeAction.fetchQuakeIfNeeded(params.id)
         ]
       },
       {

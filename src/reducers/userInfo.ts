@@ -1,24 +1,24 @@
 import {
-  UserInfoState,
-  UserAction,
+  QuakeInfoState,
+  QuakeAction,
   USER_REQUESTING,
   USER_SUCCESS,
   USER_FAILURE
 } from '../types';
 
-export default (state: UserInfoState = {}, action: UserAction) => {
+export default (state: QuakeInfoState = {}, action: QuakeAction) => {
   switch (action.type) {
     case USER_REQUESTING:
       return {
         ...state,
-        [action.userId]: {
+        [action.quakeId]: {
           readyStatus: 'request'
         }
       };
     case USER_SUCCESS:
       return {
         ...state,
-        [action.userId]: {
+        [action.quakeId]: {
           readyStatus: 'success',
           info: action.data
         }
@@ -26,7 +26,7 @@ export default (state: UserInfoState = {}, action: UserAction) => {
     case USER_FAILURE:
       return {
         ...state,
-        [action.userId]: {
+        [action.quakeId]: {
           readyStatus: 'failure',
           err: action.err
         }

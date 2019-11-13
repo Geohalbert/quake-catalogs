@@ -8,12 +8,12 @@ type Props = {
 };
 
 export default memo(({ list }: Props) => (
-  <div className={styles.UserList}>
-    <h4>User List</h4>
+  <div className={styles.QuakeList}>
+    <h4>Quake List</h4>
     <ul>
       {list.map(({ id, name }) => (
         <li key={id}>
-          <Link to={`/UserInfo/${id}`}>{name}</Link>
+          <Link to={`/QuakeInfo/${id}`}>{name}</Link>
         </li>
       ))}
     </ul>

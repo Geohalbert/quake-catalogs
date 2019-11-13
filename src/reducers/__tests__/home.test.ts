@@ -1,6 +1,6 @@
 import home from '../home';
 
-describe('users data home', () => {
+describe('quakes data home', () => {
   it('should return the initial state', () => {
     // @ts-ignore
     expect(home(undefined, {})).toEqual({

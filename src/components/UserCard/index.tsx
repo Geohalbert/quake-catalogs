@@ -12,8 +12,8 @@ type Props = {
 };
 
 export default memo(({ info }: Props) => (
-  <div className={styles.UserCard}>
-    <h4>User Card</h4>
+  <div className={styles.QuakeCard}>
+    <h4>Quake Card</h4>
     <ul>
       <li>Name: {info.name}</li>
       <li>Phone: {info.phone}</li>
