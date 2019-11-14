@@ -22,7 +22,7 @@ function today() {
   return [year, month, day].join('-');
 }
 // const API_URL = 'https://jsonplaceholder.typicode.com/users';
-const API_URL = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-11-12&endtime=2019-11-13&limit=10`;
+const API_URL = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-11-12&endtime=2019-11-13&limit=10';
 // Export this for unit testing
 /* istanbul ignore next */
 export const fetchQuake = (
